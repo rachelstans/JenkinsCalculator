@@ -1,3 +1,4 @@
+import java.util.UUID;
 
 class Calculator {
 
@@ -38,8 +39,12 @@ class Calculator {
     .
     etc
      */
-    int fibonacciNumberFinder(int n){
-        return 0;
+    int fibonacciNumberFinder(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        return (fibonacciNumberFinder(n - 1) + fibonacciNumberFinder(n - 2));
     }
 
 
@@ -64,8 +69,8 @@ class Calculator {
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
     String createUniqueID(String n){
-
-        return null;
+        UUID uuid = UUID.randomUUID();
+        return n + uuid;
     }
 
 
