@@ -1,31 +1,47 @@
- public class Main {
+import java.util.Scanner;
+
+public class Main {
          public static void main(String[] args) {
 
                  System.out.println("Welcome to the calculator");
                  System.out.println("Enter a command:");
 
-                 if (args[0] == "add") {
-                        System.out.println("add");
-                 }
+                 Scanner scanner = new Scanner(System.in);
 
-                 if (args[0] == "subtract") {
-                         System.out.println("subtract");
-                 }
+                 Calculator calculator = new Calculator();
 
-                 if (args[0] == "multiply") {
-                         System.out.println("multiply");
-                 }
+                 while (scanner.hasNext()) {
+                         String commandString = scanner.next();
 
-                 if (args[0] == "divide") {
-                         System.out.println("divide");
-                 }
+                         if (commandString.equals("add")) {
+                                 int sum = calculator.add(scanner.nextInt(), scanner.nextInt());
+                                 System.out.println(sum);
+                         }
 
-                 if (args[0] == "fibonacci") {
-                         System.out.println("fibonacci");
-                 }
+                         if (commandString.equals("subtract")) {
+                                 int difference = calculator.subtract(scanner.nextInt(), scanner.nextInt());
+                                 System.out.println(difference);
+                         }
 
-                 if (args[0] == "binary") {
-                         System.out.println("binary");
+                         if (commandString.equals("multiply")) {
+                                 int product = calculator.multiply(scanner.nextInt(), scanner.nextInt());
+                                 System.out.println(product);
+                         }
+
+                         if (commandString.equals("divide")) {
+                                 int quotient = calculator.divide(scanner.nextInt(), scanner.nextInt());
+                                 System.out.println(quotient);
+                         }
+
+                         if (commandString.equals("fibonacci")) {
+                                 int fib = calculator.fibonacciNumberFinder(scanner.nextInt());
+                                 System.out.println(fib);
+                         }
+
+                         if (commandString.equals("binary")) {
+                                 String binaryNumber = calculator.intToBinaryNumber(scanner.nextInt());
+                                 System.out.println(binaryNumber);
+                         }
                  }
          }
 }
